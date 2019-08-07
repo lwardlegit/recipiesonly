@@ -1,0 +1,30 @@
+{
+
+  "name": "recipes only",
+  "short_name": "recipe extension",
+  "description": "only the recipes you want with none of the hassle",
+  "version": "0.0.0.1",
+  "manifest_version": 2,
+  "content_scripts": [
+   {
+     "matches": ["<all_urls>"],
+     "js": ["mainscript.js"]
+   }
+ ],
+ "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle",
+    "all_frames": false
+  }],
+  "browser_action": {
+    "default_popup": "./index.html"
+  },
+  "permissions": [
+  "activeTab",
+  "tabs",
+  "bookmarks",
+  "<all_urls>",
+  "unlimitedStorage"
+]
+}
